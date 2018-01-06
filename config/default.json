@@ -1,0 +1,8 @@
+{
+  "Wallet":{
+  "DownloadPath":{"Path":"../Final/public/Downloads/"},
+  "UploadPath":{"Path":"../Final/public/Uploads/"},
+  "Web3Provider":{"Provider":"https://rinkeby.infura.io/"}
+}
+
+}
