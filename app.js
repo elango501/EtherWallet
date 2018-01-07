@@ -3,7 +3,7 @@ var app = express();
 var filemanager = require('./FileManager.js');
 var multer=require('multer');
 var config= require('config');
-
+const port= process.env.PORT || 8080;
 app.use(express.static(__dirname+"/public/"));
 //app.use(express.static("/Final/public/Downloads/"));
 
@@ -40,4 +40,4 @@ app.post('/LoadWallet',(req,res)=>{
 	res.send(seed);
 	})
 });
-app.listen(8080);
+app.listen(port);
