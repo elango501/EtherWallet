@@ -4,7 +4,11 @@ var config= require('config');
 var writeKeyStore=(seed,address,utc)=>{
   try{
     var downloadpath =config.get('Wallet.DownloadPath').Path;
-   	fs.writeFileSync(downloadpath+address+".keystore",seed);
+   	fs.writeFile(downloadpath+address+".keystore",seed,function(err){
+      if (err) {
+        console.log(err);
+      }
+    });
     return address;
 }
 catch(e){

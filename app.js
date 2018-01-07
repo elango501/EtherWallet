@@ -10,7 +10,7 @@ app.use(express.static(__dirname+"/public/"));
 app.get("/", function(req, res){
 	res.sendFile(__dirname + "/public/html/index.html");
 })
-app.get("/download",(req,res)=>{
+app.get("/Download",(req,res)=>{
 var address = req.query.address;
 var seed = req.query.seed;
 var utc = req.query.utc;
@@ -24,7 +24,7 @@ res.send(provider);
 
 var storage = multer.diskStorage({
 	destination: function(req, file, callback) {
-		callback(null, '../Final/Uploads/')
+		callback(null, './Uploads')
 	},
 	filename: function(req, file, callback) {
 		callback(null, file.originalname);
@@ -36,9 +36,8 @@ app.post('/LoadWallet',(req,res)=>{
 		storage: storage
 	}).single('userFile')
 	upload(req, res, function(err) {
-  var seed=filemanager.readKeyStore(req.file.filename);
-	console.log(seed);
-		res.send(seed);
+	var seed=filemanager.readKeyStore(req.file.filename);
+	res.send(seed);
 	})
 });
 app.listen(8080);
